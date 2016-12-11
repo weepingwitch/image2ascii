@@ -94,8 +94,8 @@ def prepareimage(myimg, depth):
         pixelatedimage = pixelatedimage.resize((pixfactor*2,pixfactor))
 
         #output progress image, for debugging
-        progimg = pixelatedimage.resize((newsize,newsize))
-        progimg.save("progress.png","png")
+        #progimg = pixelatedimage.resize((newsize,newsize))
+        #progimg.save("progress.png","png")
 
         return pixelatedimage
 

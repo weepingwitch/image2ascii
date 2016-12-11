@@ -112,12 +112,12 @@ def processargs(argv):
     try:
        opts, args = getopt.getopt(argv,"hi:o:d:",["ifile=","ofile=","depth="])
     except getopt.GetoptError:
-       print 'usage: image2ascii.py -i <inputfile> -o <outputfile> -d <depth>\n<depth> should be between 1 and 100 inclusive, default is 8'
+       print 'usage: image2ascii.py -i <inputfile> -o <outputfile> -d <depth>\n<depth> should be between 0 (exclusive) and 100 (inclusive), default is 8'
        sys.exit(2)
     #process the args
     for opt, arg in opts:
         if opt == '-h':
-            print 'usage: image2ascii.py -i <inputfile> -o <outputfile> -d <depth>\n<depth> should be between 1 and 100 inclusive, default is 8'
+            print 'usage: image2ascii.py -i <inputfile> -o <outputfile> -d <depth>\n<depth> should be between 0 (exclusive) and 100 (inclusive), default is 8'
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
@@ -133,8 +133,8 @@ def processargs(argv):
 
 
     #make sure depth is correct
-    if depth < 1 or depth > 100:
-        print 'usage: image2ascii.py -i <inputfile> -o <outputfile> -d <depth>\n<depth> should be between 1 and 100 inclusive'
+    if depth <= 0 or depth > 100:
+        print 'usage: image2ascii.py -i <inputfile> -o <outputfile> -d <depth>\n<depth> should be between 0 (exclusive) and 100 (inclusive)'
         sys.exit(2)
 
     #print 'Input file is "', inputfile

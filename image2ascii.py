@@ -41,7 +41,7 @@ def main(argv):
 #convert to characters based on value
 def converttochars(pixarray):
     #array of chars in increasing darnkess
-    chars = [' ', '.','-','~','!',']','}','$','%','&','@','#']
+    chars = [' ', '.','-','~','=','!',']','}','#','$','%','&','@',]
     procarray = numpy.chararray(pixarray.shape)
     k = 0
     for row in pixarray:
@@ -49,7 +49,7 @@ def converttochars(pixarray):
         for val in row:
             val = 255.0-val
             i =  ((len(chars)-1)*(val/255.0))
-            i = int(i)
+            i = int(round(i))
             procarray[k][j] = chars[i]
             j+=1
         k+=1
